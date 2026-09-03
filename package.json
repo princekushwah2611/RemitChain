@@ -1,0 +1,12 @@
+{
+  "name": "remitchain-root",
+  "version": "1.0.0",
+  "description": "RemitChain Blockchain Cross-Border Remittance Framework",
+  "scripts": {
+    "test:contracts": "cd contracts && npm test",
+    "deploy:contracts": "cd contracts && npm run deploy",
+    "start:backend": "cd backend && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  }
+}

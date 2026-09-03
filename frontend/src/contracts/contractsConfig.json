@@ -1,0 +1,28 @@
+{
+  "network": "localhost",
+  "chainId": 31337,
+  "remitCoin": {
+    "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "abi": [
+      "function name() view returns (string)",
+      "function symbol() view returns (string)",
+      "function decimals() view returns (uint8)",
+      "function totalSupply() view returns (uint256)",
+      "function balanceOf(address) view returns (uint256)",
+      "function transfer(address,uint256) returns (bool)",
+      "function allowance(address,address) view returns (uint256)",
+      "function approve(address,uint256) returns (bool)",
+      "function transferFrom(address,address,uint256) returns (bool)",
+      "function claimFaucet(address,uint256)"
+    ]
+  },
+  "remittanceSystem": {
+    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "abi": [
+      "function initiateTransfer(address,uint256,uint256,string,string,uint256) returns (bytes32)",
+      "function withdrawFunds(bytes32)",
+      "function cancelTransfer(bytes32)",
+      "function getAllTransfers() view returns (tuple(bytes32 transferId, address sender, address recipient, uint256 amount, uint256 targetAmount, uint256 timestamp, uint8 status, string senderCurrency, string recipientCurrency, uint256 exchangeRate)[])"
+    ]
+  }
+}
