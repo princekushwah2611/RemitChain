@@ -39,10 +39,10 @@ export const TickerBar = () => {
   }, []);
 
   return (
-    <div className="bg-slate-100/90 border-b border-slate-200 py-1.5 px-4 text-xs overflow-hidden backdrop-blur-md">
+    <div className="bg-slate-950/95 border-b border-slate-800/80 py-1.5 px-4 text-xs overflow-hidden backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <div className="flex items-center space-x-2 text-slate-700 font-bold shrink-0 pr-4 border-r border-slate-300">
-          <Zap className="h-3.5 w-3.5 text-blue-600 animate-pulse" />
+        <div className="flex items-center space-x-2 text-slate-300 font-bold shrink-0 pr-4 border-r border-slate-800">
+          <Zap className="h-3.5 w-3.5 text-blue-400 animate-pulse" />
           <span className="hidden sm:inline">LIVE FOREX RATES</span>
           <span className="sm:hidden">FOREX</span>
         </div>
@@ -54,9 +54,9 @@ export const TickerBar = () => {
             return (
               <div key={key} className="flex items-center space-x-1.5 shrink-0">
                 <span>{pair.flag}</span>
-                <span className="text-slate-600 font-semibold">{pair.from}/{pair.to}:</span>
-                <span className="font-extrabold text-slate-900">{rateVal}</span>
-                <span className="text-[10px] text-emerald-600 font-bold flex items-center">
+                <span className="text-slate-400 font-semibold">{pair.from}/{pair.to}:</span>
+                <span className="font-extrabold text-white">{rateVal}</span>
+                <span className="text-[10px] text-emerald-400 font-bold flex items-center">
                   <TrendingUp className="h-3 w-3" /> +0.1%
                 </span>
               </div>
@@ -64,8 +64,8 @@ export const TickerBar = () => {
           })}
         </div>
 
-        <div className="hidden lg:flex items-center space-x-1 text-[10px] text-slate-500 shrink-0 font-semibold pl-4 border-l border-slate-300">
-          <RefreshCw className="h-3 w-3 text-blue-600 animate-spin" />
+        <div className="hidden lg:flex items-center space-x-1 text-[10px] text-slate-400 shrink-0 font-semibold pl-4 border-l border-slate-800">
+          <RefreshCw className="h-3 w-3 text-blue-400 animate-spin" />
           <span>Real-time Oracle Feed</span>
         </div>
       </div>

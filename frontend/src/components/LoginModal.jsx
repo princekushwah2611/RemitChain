@@ -86,11 +86,11 @@ export const LoginModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="glass-panel w-full max-w-md rounded-3xl p-6 sm:p-8 border border-slate-200 space-y-6 relative shadow-2xl bg-white my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md p-4 overflow-y-auto">
+      <div className="glass-panel w-full max-w-md rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-6 relative shadow-2xl bg-slate-900/95 text-white my-8">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2 rounded-xl hover:bg-slate-100 transition-all"
+          className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition-all"
         >
           <X className="h-5 w-5" />
         </button>
@@ -103,26 +103,26 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
             <div>
               <div className="flex items-center justify-center space-x-2">
-                <h3 className="text-xl font-extrabold text-slate-900">{userProfile?.name || 'Authenticated User'}</h3>
-                <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                <h3 className="text-xl font-extrabold text-white">{userProfile?.name || 'Authenticated User'}</h3>
+                <span className="rounded-full bg-emerald-950/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-800/80 flex items-center gap-1">
                   <ShieldCheck className="h-3 w-3" /> {userProfile?.kycLevel || 'Verified'}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 font-mono mt-1 font-semibold">{shortenAddress(account || userProfile?.address)}</p>
+              <p className="text-xs text-slate-400 font-mono mt-1 font-semibold">{shortenAddress(account || userProfile?.address)}</p>
             </div>
 
-            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4 space-y-2.5 text-xs text-left">
-              <div className="flex justify-between text-slate-600">
+            <div className="rounded-2xl bg-slate-950 border border-slate-800 p-4 space-y-2.5 text-xs text-left text-slate-300">
+              <div className="flex justify-between text-slate-400">
                 <span>Phone / Contact:</span>
-                <span className="text-slate-900 font-bold">{userProfile?.phone || 'Not linked'}</span>
+                <span className="text-white font-bold">{userProfile?.phone || 'Not linked'}</span>
               </div>
-              <div className="flex justify-between text-slate-600">
+              <div className="flex justify-between text-slate-400">
                 <span>Email Address:</span>
-                <span className="text-slate-900 font-bold">{userProfile?.email || 'N/A'}</span>
+                <span className="text-white font-bold">{userProfile?.email || 'N/A'}</span>
               </div>
-              <div className="flex justify-between text-slate-600">
+              <div className="flex justify-between text-slate-400">
                 <span>Account Role:</span>
-                <span className="text-blue-700 font-bold capitalize">{userProfile?.role || 'Sender'}</span>
+                <span className="text-blue-400 font-bold capitalize">{userProfile?.role || 'Sender'}</span>
               </div>
             </div>
 
@@ -131,7 +131,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 logout();
                 onClose();
               }}
-              className="w-full flex items-center justify-center space-x-2 rounded-xl bg-rose-50 border border-rose-200 py-3 text-xs font-bold text-rose-700 hover:bg-rose-100 transition-all"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl bg-rose-950/40 border border-rose-900/60 py-3 text-xs font-bold text-rose-300 hover:bg-rose-900/50 transition-all"
             >
               <LogOut className="h-4 w-4" />
               <span>Sign Out of RemitChain</span>
@@ -140,14 +140,14 @@ export const LoginModal = ({ isOpen, onClose }) => {
         ) : (
           <div className="space-y-5">
             <div className="text-center space-y-1">
-              <div className="inline-flex items-center space-x-2 rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-xs text-blue-700 font-bold mb-1">
+              <div className="inline-flex items-center space-x-2 rounded-full bg-blue-950/80 border border-blue-800/80 px-3 py-1 text-xs text-blue-300 font-bold mb-1">
                 <Globe className="h-3.5 w-3.5" />
                 <span>Official RemitChain Auth Portal</span>
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-900">Sign In to Your Account</h3>
+              <h3 className="text-2xl font-extrabold text-white">Sign In to Your Account</h3>
             </div>
 
-            <div className="flex rounded-2xl bg-slate-100 p-1 border border-slate-200 text-xs font-bold">
+            <div className="flex rounded-2xl bg-slate-950/90 p-1 border border-slate-800 text-xs font-bold">
               <button
                 onClick={() => {
                   setAuthTab('phone');
@@ -155,8 +155,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 }}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'phone'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Phone className="h-3.5 w-3.5" />
@@ -167,8 +167,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 onClick={() => setAuthTab('email')}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'email'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Mail className="h-3.5 w-3.5" />
@@ -179,8 +179,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 onClick={() => setAuthTab('metamask')}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'metamask'
-                    ? 'bg-amber-500 text-slate-950 shadow-xs font-extrabold'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-amber-500 text-slate-950 shadow-md font-extrabold'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Wallet className="h-3.5 w-3.5" />
@@ -193,17 +193,17 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 {!otpStep ? (
                   <form onSubmit={handleSendOtp} className="space-y-4 pt-1">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                         Mobile Phone Number
                       </label>
                       <div className="flex gap-2">
                         <select
                           value={countryCode}
                           onChange={(e) => setCountryCode(e.target.value)}
-                          className="rounded-xl bg-slate-50 border border-slate-200 px-3 py-2.5 text-xs font-bold text-slate-900 focus:outline-none cursor-pointer"
+                          className="rounded-xl bg-slate-950 border border-slate-800 px-3 py-2.5 text-xs font-bold text-white focus:outline-none cursor-pointer"
                         >
                           {COUNTRY_CODES.map((c) => (
-                            <option key={c.code} value={c.code}>
+                            <option key={c.code} value={c.code} className="bg-slate-900 text-white">
                               {c.code} ({c.country.split(' ')[0]})
                             </option>
                           ))}
@@ -213,7 +213,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="555-0192"
-                          className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none font-mono"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none font-mono"
                           required
                         />
                       </div>
@@ -221,7 +221,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-md hover:bg-blue-500 transition-all"
+                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-500 transition-all"
                     >
                       <span>Send SMS Verification Code</span>
                       <ArrowRight className="h-4 w-4" />
@@ -230,8 +230,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 ) : (
                   <form onSubmit={handleVerifyOtp} className="space-y-4 pt-1 text-center">
                     <div>
-                      <span className="text-xs text-slate-500 font-medium">Enter 6-digit SMS code sent to:</span>
-                      <p className="font-extrabold text-slate-900 text-sm font-mono">{countryCode} {phone}</p>
+                      <span className="text-xs text-slate-400 font-medium">Enter 6-digit SMS code sent to:</span>
+                      <p className="font-extrabold text-white text-sm font-mono">{countryCode} {phone}</p>
                     </div>
 
                     <div className="flex justify-center space-x-2 my-3">
@@ -246,7 +246,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                             newOtp[idx] = e.target.value;
                             setOtp(newOtp);
                           }}
-                          className="w-10 h-12 text-center text-lg font-extrabold bg-slate-50 border border-slate-200 rounded-xl text-blue-700 focus:border-blue-600 focus:outline-none shadow-xs"
+                          className="w-10 h-12 text-center text-lg font-extrabold bg-slate-950 border border-slate-800 rounded-xl text-blue-400 focus:border-blue-500 focus:outline-none shadow-inner"
                         />
                       ))}
                     </div>
@@ -254,7 +254,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white shadow-md hover:bg-emerald-500 transition-all disabled:opacity-50"
+                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:bg-emerald-500 transition-all disabled:opacity-50"
                     >
                       {loading ? (
                         <>
@@ -276,33 +276,34 @@ export const LoginModal = ({ isOpen, onClose }) => {
             {authTab === 'email' && (
               <form onSubmit={handleEmailSubmit} className="space-y-4 pt-1">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                     Email Address
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+                    <Mail className="absolute left-3.5 top-3 h-4 w-4 text-slate-500" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="rahul.sharma@remitchain.io"
-                      className="w-full rounded-xl bg-slate-50 border border-slate-200 pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none"
+                      className="w-full rounded-xl bg-slate-950 border border-slate-800 pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                     Password
                   </label>
                   <div className="relative">
-                    <Lock className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+                    <Lock className="absolute left-3.5 top-3 h-4 w-4 text-slate-500" />
                     <input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full rounded-xl bg-slate-50 border border-slate-200 pl-10 pr-4 py-2.5 text-xs text-slate-900 focus:border-blue-600 focus:outline-none"
+                      placeholder="••••••••"
+                      className="w-full rounded-xl bg-slate-950 border border-slate-800 pl-10 pr-4 py-2.5 text-xs text-white focus:border-blue-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -310,7 +311,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-md hover:bg-blue-500 transition-all"
+                  className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-500 transition-all"
                 >
                   <span>Sign In to Account</span>
                   <ArrowRight className="h-4 w-4" />
@@ -320,12 +321,12 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
             {authTab === 'metamask' && (
               <div className="space-y-4 pt-1">
-                <div className="rounded-2xl bg-amber-50 border border-amber-200 p-4 space-y-2 text-xs">
-                  <div className="flex items-center space-x-2 text-amber-800 font-bold">
-                    <ShieldCheck className="h-4 w-4 text-amber-700" />
+                <div className="rounded-2xl bg-amber-500/10 border border-amber-500/30 p-4 space-y-2 text-xs">
+                  <div className="flex items-center space-x-2 text-amber-400 font-bold">
+                    <ShieldCheck className="h-4 w-4 text-amber-400" />
                     <span>Cryptographic Signature Auth</span>
                   </div>
-                  <p className="text-slate-600 leading-relaxed font-medium">
+                  <p className="text-slate-300 leading-relaxed font-medium">
                     Connect and sign an official Web3 challenge message with your MetaMask wallet.
                   </p>
                 </div>
