@@ -32,7 +32,7 @@ const AppContent = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-blue-600 selection:text-white relative">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col justify-between selection:bg-white selection:text-black relative">
       {/* Top Slide-In Real-Time Transaction Completion Toast Popup */}
       <ToastNotification />
 
@@ -69,25 +69,25 @@ const AppContent = () => {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-slate-950/90 py-6 text-center text-xs text-slate-400 font-medium">
+      <footer className="border-t border-zinc-900 bg-black/90 py-6 text-center text-xs text-zinc-500 font-medium">
         <div className="mx-auto max-w-7xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center space-x-2">
-            <Globe className="h-4 w-4 text-blue-500" />
+            <Globe className="h-4 w-4 text-zinc-400" />
             <span className="font-extrabold text-white">RemitChain Enterprise</span>
-            <span className="text-slate-500">— 256-bit Encrypted Bank-Grade Security</span>
+            <span className="text-zinc-600">— 256-bit Encrypted Bank-Grade Security</span>
           </div>
 
           <div className="flex items-center space-x-4">
-            <button onClick={() => setIsLoginOpen(true)} className="text-blue-400 hover:text-blue-300 hover:underline font-bold">
+            <button onClick={() => setIsLoginOpen(true)} className="text-zinc-300 hover:text-white transition-colors font-bold">
               Account Profile
             </button>
-            <button onClick={() => setIsMetaMaskGuideOpen(true)} className="text-amber-400 hover:text-amber-300 hover:underline font-bold">
+            <button onClick={() => setIsMetaMaskGuideOpen(true)} className="text-zinc-300 hover:text-white transition-colors font-bold">
               MetaMask Guide
             </button>
-            <button onClick={() => setActiveTab('comparison')} className="hover:text-blue-400 text-slate-300 font-semibold">
+            <button onClick={() => setActiveTab('comparison')} className="text-zinc-400 hover:text-zinc-200 transition-colors font-semibold">
               Fee Calculator
             </button>
-            <button onClick={() => setIsFaucetOpen(true)} className="hover:text-amber-400 text-slate-300 font-semibold">
+            <button onClick={() => setIsFaucetOpen(true)} className="text-zinc-400 hover:text-zinc-200 transition-colors font-semibold">
               RMT Faucet
             </button>
           </div>

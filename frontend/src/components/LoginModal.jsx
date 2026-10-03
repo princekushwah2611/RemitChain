@@ -86,43 +86,43 @@ export const LoginModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md p-4 overflow-y-auto">
-      <div className="glass-panel w-full max-w-md rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-6 relative shadow-2xl bg-slate-900/95 text-white my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-xl p-4 overflow-y-auto">
+      <div className="glass-panel w-full max-w-md rounded-3xl p-6 sm:p-8 border border-zinc-800 space-y-6 relative shadow-2xl bg-zinc-950 text-white my-8">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition-all"
+          className="absolute top-5 right-5 text-zinc-500 hover:text-white p-2 rounded-xl hover:bg-zinc-900 transition-all"
         >
           <X className="h-5 w-5" />
         </button>
 
         {isAuthenticated ? (
           <div className="space-y-6 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-white shadow-lg shadow-white/5">
               <User className="h-8 w-8" />
             </div>
 
             <div>
               <div className="flex items-center justify-center space-x-2">
-                <h3 className="text-xl font-extrabold text-white">{userProfile?.name || 'Authenticated User'}</h3>
-                <span className="rounded-full bg-emerald-950/80 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-800/80 flex items-center gap-1">
-                  <ShieldCheck className="h-3 w-3" /> {userProfile?.kycLevel || 'Verified'}
+                <h3 className="text-xl font-black text-white">{userProfile?.name || 'Authenticated User'}</h3>
+                <span className="rounded-full bg-zinc-900 px-2.5 py-0.5 text-[10px] font-bold text-zinc-300 border border-zinc-800 flex items-center gap-1">
+                  <ShieldCheck className="h-3 w-3 text-emerald-400" /> {userProfile?.kycLevel || 'Verified'}
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-mono mt-1 font-semibold">{shortenAddress(account || userProfile?.address)}</p>
+              <p className="text-xs text-zinc-500 font-mono mt-1 font-semibold">{shortenAddress(account || userProfile?.address)}</p>
             </div>
 
-            <div className="rounded-2xl bg-slate-950 border border-slate-800 p-4 space-y-2.5 text-xs text-left text-slate-300">
-              <div className="flex justify-between text-slate-400">
+            <div className="rounded-2xl bg-black border border-zinc-800 p-4 space-y-2.5 text-xs text-left text-zinc-300">
+              <div className="flex justify-between text-zinc-400">
                 <span>Phone / Contact:</span>
                 <span className="text-white font-bold">{userProfile?.phone || 'Not linked'}</span>
               </div>
-              <div className="flex justify-between text-slate-400">
+              <div className="flex justify-between text-zinc-400">
                 <span>Email Address:</span>
                 <span className="text-white font-bold">{userProfile?.email || 'N/A'}</span>
               </div>
-              <div className="flex justify-between text-slate-400">
+              <div className="flex justify-between text-zinc-400">
                 <span>Account Role:</span>
-                <span className="text-blue-400 font-bold capitalize">{userProfile?.role || 'Sender'}</span>
+                <span className="text-zinc-200 font-bold capitalize">{userProfile?.role || 'Sender'}</span>
               </div>
             </div>
 
@@ -131,23 +131,23 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 logout();
                 onClose();
               }}
-              className="w-full flex items-center justify-center space-x-2 rounded-xl bg-rose-950/40 border border-rose-900/60 py-3 text-xs font-bold text-rose-300 hover:bg-rose-900/50 transition-all"
+              className="w-full flex items-center justify-center space-x-2 rounded-xl bg-zinc-900 border border-zinc-800 py-3 text-xs font-bold text-zinc-300 hover:text-rose-400 hover:bg-zinc-800 transition-all"
             >
               <LogOut className="h-4 w-4" />
-              <span>Sign Out of RemitChain</span>
+              <span>Sign Out</span>
             </button>
           </div>
         ) : (
           <div className="space-y-5">
             <div className="text-center space-y-1">
-              <div className="inline-flex items-center space-x-2 rounded-full bg-blue-950/80 border border-blue-800/80 px-3 py-1 text-xs text-blue-300 font-bold mb-1">
+              <div className="inline-flex items-center space-x-2 rounded-full bg-zinc-900 border border-zinc-800 px-3 py-1 text-xs text-zinc-300 font-bold mb-1">
                 <Globe className="h-3.5 w-3.5" />
-                <span>Official RemitChain Auth Portal</span>
+                <span>RemitChain Auth Portal</span>
               </div>
-              <h3 className="text-2xl font-extrabold text-white">Sign In to Your Account</h3>
+              <h3 className="text-2xl font-black text-white">Sign In to Your Account</h3>
             </div>
 
-            <div className="flex rounded-2xl bg-slate-950/90 p-1 border border-slate-800 text-xs font-bold">
+            <div className="flex rounded-2xl bg-black p-1 border border-zinc-800 text-xs font-bold">
               <button
                 onClick={() => {
                   setAuthTab('phone');
@@ -155,8 +155,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 }}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'phone'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-white text-black shadow-sm font-black'
+                    : 'text-zinc-500 hover:text-white'
                 }`}
               >
                 <Phone className="h-3.5 w-3.5" />
@@ -167,8 +167,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 onClick={() => setAuthTab('email')}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'email'
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-white text-black shadow-sm font-black'
+                    : 'text-zinc-500 hover:text-white'
                 }`}
               >
                 <Mail className="h-3.5 w-3.5" />
@@ -179,8 +179,8 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 onClick={() => setAuthTab('metamask')}
                 className={`flex-1 flex items-center justify-center space-x-1.5 rounded-xl py-2 transition-all ${
                   authTab === 'metamask'
-                    ? 'bg-amber-500 text-slate-950 shadow-md font-extrabold'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-zinc-800 text-white border border-zinc-700 font-black'
+                    : 'text-zinc-500 hover:text-white'
                 }`}
               >
                 <Wallet className="h-3.5 w-3.5" />
@@ -193,17 +193,17 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 {!otpStep ? (
                   <form onSubmit={handleSendOtp} className="space-y-4 pt-1">
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">
                         Mobile Phone Number
                       </label>
                       <div className="flex gap-2">
                         <select
                           value={countryCode}
                           onChange={(e) => setCountryCode(e.target.value)}
-                          className="rounded-xl bg-slate-950 border border-slate-800 px-3 py-2.5 text-xs font-bold text-white focus:outline-none cursor-pointer"
+                          className="rounded-xl bg-black border border-zinc-800 px-3 py-2.5 text-xs font-bold text-white focus:outline-none cursor-pointer"
                         >
                           {COUNTRY_CODES.map((c) => (
-                            <option key={c.code} value={c.code} className="bg-slate-900 text-white">
+                            <option key={c.code} value={c.code} className="bg-zinc-900 text-white">
                               {c.code} ({c.country.split(' ')[0]})
                             </option>
                           ))}
@@ -213,7 +213,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="555-0192"
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none font-mono"
+                          className="w-full rounded-xl bg-black border border-zinc-800 px-4 py-2.5 text-xs text-white placeholder-zinc-600 focus:border-zinc-400 focus:outline-none font-mono"
                           required
                         />
                       </div>
@@ -221,17 +221,17 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-500 transition-all"
+                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-white py-3 text-sm font-black text-black shadow-lg shadow-white/10 hover:bg-zinc-200 transition-all"
                     >
-                      <span>Send SMS Verification Code</span>
+                      <span>Send SMS Verification</span>
                       <ArrowRight className="h-4 w-4" />
                     </button>
                   </form>
                 ) : (
                   <form onSubmit={handleVerifyOtp} className="space-y-4 pt-1 text-center">
                     <div>
-                      <span className="text-xs text-slate-400 font-medium">Enter 6-digit SMS code sent to:</span>
-                      <p className="font-extrabold text-white text-sm font-mono">{countryCode} {phone}</p>
+                      <span className="text-xs text-zinc-400 font-normal">Enter 6-digit SMS code sent to:</span>
+                      <p className="font-black text-white text-sm font-mono">{countryCode} {phone}</p>
                     </div>
 
                     <div className="flex justify-center space-x-2 my-3">
@@ -246,7 +246,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
                             newOtp[idx] = e.target.value;
                             setOtp(newOtp);
                           }}
-                          className="w-10 h-12 text-center text-lg font-extrabold bg-slate-950 border border-slate-800 rounded-xl text-blue-400 focus:border-blue-500 focus:outline-none shadow-inner"
+                          className="w-10 h-12 text-center text-lg font-black bg-black border border-zinc-800 rounded-xl text-white focus:border-zinc-400 focus:outline-none shadow-inner"
                         />
                       ))}
                     </div>
@@ -254,17 +254,17 @@ export const LoginModal = ({ isOpen, onClose }) => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/30 hover:bg-emerald-500 transition-all disabled:opacity-50"
+                      className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-white py-3 text-sm font-black text-black shadow-lg shadow-white/10 hover:bg-zinc-200 transition-all disabled:opacity-50"
                     >
                       {loading ? (
                         <>
-                          <RefreshCw className="h-4 w-4 animate-spin" />
+                          <RefreshCw className="h-4 w-4 animate-spin text-black" />
                           <span>Verifying OTP...</span>
                         </>
                       ) : (
                         <>
                           <CheckCircle2 className="h-4 w-4" />
-                          <span>Verify & Complete Sign In</span>
+                          <span>Verify & Sign In</span>
                         </>
                       )}
                     </button>
@@ -276,34 +276,34 @@ export const LoginModal = ({ isOpen, onClose }) => {
             {authTab === 'email' && (
               <form onSubmit={handleEmailSubmit} className="space-y-4 pt-1">
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">
                     Email Address
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-3.5 top-3 h-4 w-4 text-slate-500" />
+                    <Mail className="absolute left-3.5 top-3 h-4 w-4 text-zinc-500" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="rahul.sharma@remitchain.io"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+                      className="w-full rounded-xl bg-black border border-zinc-800 pl-10 pr-4 py-2.5 text-xs text-white placeholder-zinc-600 focus:border-zinc-400 focus:outline-none"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">
                     Password
                   </label>
                   <div className="relative">
-                    <Lock className="absolute left-3.5 top-3 h-4 w-4 text-slate-500" />
+                    <Lock className="absolute left-3.5 top-3 h-4 w-4 text-zinc-500" />
                     <input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 pl-10 pr-4 py-2.5 text-xs text-white focus:border-blue-500 focus:outline-none"
+                      className="w-full rounded-xl bg-black border border-zinc-800 pl-10 pr-4 py-2.5 text-xs text-white focus:border-zinc-400 focus:outline-none"
                       required
                     />
                   </div>
@@ -311,7 +311,7 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/30 hover:bg-blue-500 transition-all"
+                  className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-white py-3 text-sm font-black text-black shadow-lg shadow-white/10 hover:bg-zinc-200 transition-all"
                 >
                   <span>Sign In to Account</span>
                   <ArrowRight className="h-4 w-4" />
@@ -321,12 +321,12 @@ export const LoginModal = ({ isOpen, onClose }) => {
 
             {authTab === 'metamask' && (
               <div className="space-y-4 pt-1">
-                <div className="rounded-2xl bg-amber-500/10 border border-amber-500/30 p-4 space-y-2 text-xs">
-                  <div className="flex items-center space-x-2 text-amber-400 font-bold">
-                    <ShieldCheck className="h-4 w-4 text-amber-400" />
+                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-4 space-y-2 text-xs">
+                  <div className="flex items-center space-x-2 text-white font-bold">
+                    <ShieldCheck className="h-4 w-4 text-zinc-300" />
                     <span>Cryptographic Signature Auth</span>
                   </div>
-                  <p className="text-slate-300 leading-relaxed font-medium">
+                  <p className="text-zinc-400 leading-relaxed font-normal">
                     Connect and sign an official Web3 challenge message with your MetaMask wallet.
                   </p>
                 </div>
@@ -334,16 +334,16 @@ export const LoginModal = ({ isOpen, onClose }) => {
                 <button
                   onClick={handleMetaMaskLogin}
                   disabled={loading}
-                  className="w-full flex items-center justify-center space-x-2.5 rounded-2xl bg-amber-500 py-3.5 text-sm font-bold text-slate-950 shadow-md hover:bg-amber-400 transition-all disabled:opacity-50"
+                  className="w-full flex items-center justify-center space-x-2.5 rounded-2xl bg-white py-3.5 text-sm font-black text-black shadow-md hover:bg-zinc-200 transition-all disabled:opacity-50"
                 >
                   {loading ? (
                     <>
-                      <RefreshCw className="h-4 w-4 animate-spin" />
+                      <RefreshCw className="h-4 w-4 animate-spin text-black" />
                       <span>Verifying Signature...</span>
                     </>
                   ) : (
                     <>
-                      <Wallet className="h-4 w-4 text-slate-950" />
+                      <Wallet className="h-4 w-4 text-black" />
                       <span>Sign In with MetaMask</span>
                       <ArrowRight className="h-4 w-4" />
                     </>
